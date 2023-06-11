@@ -1,0 +1,66 @@
+@import '../../assets/sass/abstracts/variables';
+@import '../../assets/sass/abstracts/mixins';
+
+body {
+    font-family: var(--ff-100);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--clr-100);
+}
+
+.app {
+    min-height: 100vh;
+    background: url('./img/john-towner-2400.jpg') center center / cover no-repeat;
+    @media (max-width: 1919px) {
+        background-image: url('./img/john-towner-1920.jpg');
+    }
+    @media (max-width: 767px) {
+        background-image: url('./img/john-towner-640.jpg');
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 5rem;
+    @media (max-width: 767px) {
+        row-gap: 3rem;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    @media (max-width: 1069px) {
+        padding: 0 20px;
+    }
+}
+
+.divider-row {
+    border-top: 1px solid #7A7878;
+    padding: 2rem 0;
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.title {
+    font-weight: 400;
+    font-size: 3.6rem;
+    line-height: 1.3em;
+    @media (max-width: 767px) {
+        font-size: 2.4rem;
+    }
+}
+
+a {
+    color: var(--clr-100);
+    text-decoration: underline;
+    transition: all .3s;
+    &:hover {
+        opacity: .8;
+    }
+}

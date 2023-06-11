@@ -1,0 +1,16 @@
+@mixin list-reset {
+    padding: 0;
+    list-style: none;
+}
+
+@mixin btn-reset {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+@mixin flex($ai: stretch, $jc: flex-start) {
+    display: flex;
+    align-items: $ai;
+    justify-content: $jc;
+}

@@ -1,0 +1,15 @@
+@import '../../assets/sass/abstracts/mixins';
+
+.header {
+    padding: 20px 0;
+    &-wrap {
+        @include flex(center, space-between);
+        column-gap: 2.4rem;
+    }
+    &-search {
+        min-width: 23.5rem;
+        @media (max-width: 767px) {
+            min-width: unset;
+        }
+    }
+}

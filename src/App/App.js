@@ -1,9 +1,7 @@
 import './reset.scss';
 import './style.scss';
 
-import Header from '../Header/Header';
-import Card from '../Card/Card';
-import Footer from '../Footer/Footer';
+import {Header, Card, Footer} from '../components';
 
 function App() {
     return (

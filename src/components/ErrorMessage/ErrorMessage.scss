@@ -1,0 +1,17 @@
+.error {
+    text-align: center;
+    &-img {
+        margin-top: 3rem;
+        img {
+            width: 100%;
+            max-width: 10.5rem;
+            margin: 0 auto;
+        }
+    }
+    &-text {
+        margin-top: 3rem;
+        font-weight: 300;
+        font-size: 2rem;
+        line-height: 1.3em;
+    }
+}

@@ -18,6 +18,7 @@ function Search() {
     const onSubmit = (e) => {
         e.preventDefault();
         updateCity(value);
+        localStorage.setItem('city', value);
     }
 
     return (

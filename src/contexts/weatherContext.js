@@ -2,8 +2,10 @@ import { createContext, useState } from "react";
 
 const WeatherContext = createContext();
 
+const cityName = localStorage.getItem('city') ?? 'Almaty';
+
 export function WeatherProvider({children}) {
-    const [city, setCity] = useState('Almaty');
+    const [city, setCity] = useState(cityName);
 
     const updateCity = (value) => {
         setCity(value);

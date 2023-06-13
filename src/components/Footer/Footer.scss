@@ -1,4 +1,9 @@
 .footer {
     background-color: var(--clr-300);
     padding: 2rem 0;
+    &-text {
+        @media (max-width: 767px) {
+            font-size: 1.4rem;
+        }
+    }
 }

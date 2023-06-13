@@ -19,7 +19,6 @@ function Weather({data}) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            console.log(getCurrentTime(timezone * 1000));
             setCurrentTime(getCurrentTime(timezone * 1000));
         }, 60000); // update every minute
 

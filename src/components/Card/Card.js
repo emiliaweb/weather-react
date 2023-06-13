@@ -13,6 +13,10 @@ function setContent(process, data) {
     switch (process) {
         case 'confirmed':
             return <Weather data={data} />;
+        case 'loading':
+            return <Skeleton />;
+        case 'error': 
+            return <ErrorMessage />
     }
 }
 
@@ -28,8 +32,6 @@ function Card() {
             setWeather(data);
         })
     }, [city]);
-
-    console.log(process);
 
     return (
         <div className="container">

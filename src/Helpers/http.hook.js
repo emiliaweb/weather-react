@@ -17,9 +17,11 @@ export function useHTTP() {
 
         const response = await fetch(url, {method, headers, body});
 
+        console.clear();
+
         try {
             if (!response.ok) {
-                throw new Error(`Could not fetch ${url}, status ${response.status} ${response.statusText}`);
+                throw new Error(`Could not fetch ${url.slice(0, 35)}..., status ${response.status} ${response.statusText}`);
             }
 
             const data = await response.json();

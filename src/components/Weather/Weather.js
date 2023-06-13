@@ -8,60 +8,7 @@ import timezoneIcon from './img/timezone.svg';
 
 import { useEffect, useState } from 'react';
 
-function getCountryName(code) {
-    const name = new Intl.DisplayNames(['en'], {type: 'region'});
-    return name.of(code);
-}
-
-function msToTime(ms) {
-    const hours = Math.floor((ms  / (1000 * 60 * 60) ) % 24)
-    const minutes = Math.floor((ms / (1000 * 60)) % 60);
-    const seconds = Math.floor((ms / 1000) % 60);
-
-    return {hours, minutes, seconds};
-}
-
-function sToTime(s) {
-    const hours = Math.floor((s  / (60 * 60) ) % 24)
-    const minutes = Math.abs(Math.floor((s / 60) % 60));
-    const seconds = Math.abs(Math.floor(s % 60));
-
-    return {hours, minutes, seconds};
-}
-
-function getZero(n) {
-    return n < 10 ? '0' + n : n;
-}
-
-function formatTimezone(timezone) {
-    const timezoneObject = sToTime(timezone);
-
-    let hours = getZero(timezoneObject.hours);
-    if (timezoneObject.hours > 0) {
-        hours = '+' + getZero(timezoneObject.hours);
-    } else if (timezoneObject.hours < 0) {
-        hours = '-' + getZero(Math.abs(timezoneObject.hours));
-    } 
-
-    const minutes = getZero(sToTime(timezone).minutes);
-
-    return `${hours}:${minutes}`;
-}
-
-function getSunTime(sun, timezone) {
-    const {hours, minutes} = msToTime((sun+timezone)*1000);
-    return `${getZero(hours)}:${getZero(minutes)}`;
-}
-
-function getCurrentTime(timezone) {
-    const currentLocalTime = new Date(Date.now());
-    const currentTimeInTimezone = new Date(Date.now() + (timezone) + (currentLocalTime.getTimezoneOffset() * 60 * 1000)).toLocaleTimeString('en-GB');
-
-    const pattern = /^([0-9]+:[0-9]+)/;
-    const time = currentTimeInTimezone.match(pattern)[0];
-
-    return time;
-}
+import { getCountryName, getCurrentTime, getSunTime, formatTimezone } from '../../Helpers/time';
 
 function Weather({data}) {
     const {weather, location, timezone, sunrise, sunset} = data;
@@ -137,7 +84,7 @@ function Weather({data}) {
                         <div className="weather-time-icon">
                             <img src={timezoneIcon} alt="Timezone"/>
                         </div>
-                        <div className="weather-time-title">UTC{formatTimezone(timezone)}</div>
+                        <div className="weather-time-title">UTC{formatTimezone(timezone * 1000)}</div>
                     </div>
                     <div className="weather-time-item">
                         <div className="weather-time-icon">
